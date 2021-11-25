@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         def config = readJSON file: 'mail.json'
-//         baseUrl = "${mail.email}"
+         baseUrl = "${mail.email}"
     }
     stages {
         stage('rte-generation') {
@@ -28,7 +28,7 @@ pipeline {
                                 emailext    attachLog: false,
                                     body: "\nHi Team,\n ${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
                                     subject: 'Status of Jenkins Build',
-                                     to: "${env.config}"
+                                     to: "${env.baseurl}"
                          
                                cleanWs cleanWhenSuccess: false, notFailBuild: true
                                    
