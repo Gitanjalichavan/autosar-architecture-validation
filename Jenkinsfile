@@ -9,6 +9,7 @@ pipeline {
             steps {
                 script{
                    echo 'rte-generation..'
+                    echo "${env.config.email}"
                 }
             }
         }
