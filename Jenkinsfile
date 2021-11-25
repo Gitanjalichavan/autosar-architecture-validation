@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    environment {
-        def config = readJSON file: 'mail.json'
-//          a = "${mail.email}"
-    }
+    
     stages {
         stage('rte-generation') {
             steps {
@@ -40,6 +37,8 @@ pipeline {
                       cleanWs cleanWhenSuccess: false, notFailBuild: true 
             }
         }
+    }
+}
   
 //         post {    
 //          always {
@@ -51,4 +50,4 @@ pipeline {
 //                                cleanWs cleanWhenSuccess: false, notFailBuild: true                                                    
 //                                 }      
 //                             }
-}
+
