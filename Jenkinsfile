@@ -2,22 +2,32 @@ pipeline {
     agent any
 
     stages {
-        stage('Ok') {
+        stage('rte-generation') {
             steps {
-                echo "Ok"
-                 
+                script{
+                   echo 'rte-generation..'
+                }
             }
         }
+        stage('build') {
+            steps {
+                script{
+                   echo 'Pipeline script implementation..'
+                }
+            }
+        }        
     }
   
         post {
     
          always {
 
-                                emailext    attachLog: true,
+                                emailext    attachLog: false,
                                     body: "\nHi Team,\n ${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
                                     subject: 'Status of Jenkins Build',
                                      to: '${DEFAULT_RECIPIENTS}'
+                         
+                               cleanWs cleanWhenSuccess: false, notFailBuild: true
                                    
                      
                                 }  
