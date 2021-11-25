@@ -40,14 +40,3 @@ pipeline {
     }
 }
   
-//         post {    
-//          always {
-//                                 emailext    attachLog: false,
-//                                     body: "\nHi Team,\n ${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
-//                                     subject: 'Status of Jenkins Build',
-//                                      to: "${env.config.email}"
-                         
-//                                cleanWs cleanWhenSuccess: false, notFailBuild: true                                                    
-//                                 }      
-//                             }
-
