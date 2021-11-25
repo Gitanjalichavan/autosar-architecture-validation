@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        def config = readJSON file: '${WORKSPACE}\\mail.json'
+        def config = readJSON file: 'mail.json'
 //         baseUrl = "${mail.email}"
     }
     stages {
