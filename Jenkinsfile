@@ -13,7 +13,12 @@ pipeline {
             steps {
                 script{
                    echo 'Pipeline script implementation..'
-                    
+                }
+            }
+        }
+         stage('email-report') {
+            steps {
+                script{
                     try{
                         def config= '[]'
                         config = readJSON file: "${WORKSPACE}\\mail.json"
