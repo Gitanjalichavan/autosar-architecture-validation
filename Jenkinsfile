@@ -1,5 +1,8 @@
 pipeline {
     agent any   
+    options {
+       skipDefaultCheckout true
+    }
     stages {
         stage('rte-generation') {
             steps {
