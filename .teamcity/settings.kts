@@ -95,6 +95,12 @@ object C4kGenerationAndBuild : BuildType({
                 filename = "c4k_generation/c4k_creation.py"
             }
         }
+        python {
+            name = "build"
+            command = file {
+                filename = "build/build.py"
+            }
+        }
     }
 
     triggers {
