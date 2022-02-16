@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.v2019_2.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -28,6 +29,9 @@ version = "2021.2"
 
 project {
 
+    vcsRoot(HttpsGithubComGitanjalichavanAutosarArchitectureValidationRefsHeadsDevelopment1)
+
+    buildType(C4kGenerationAndBuild)
     buildType(Build)
 }
 
@@ -68,5 +72,29 @@ object Build : BuildType({
     triggers {
         vcs {
         }
+    }
+})
+
+object C4kGenerationAndBuild : BuildType({
+    name = "c4k_generation_and_build"
+
+    vcs {
+        root(HttpsGithubComGitanjalichavanAutosarArchitectureValidationRefsHeadsDevelopment1)
+    }
+
+    triggers {
+        vcs {
+        }
+    }
+})
+
+object HttpsGithubComGitanjalichavanAutosarArchitectureValidationRefsHeadsDevelopment1 : GitVcsRoot({
+    name = "https://github.com/Gitanjalichavan/autosar-architecture-validation#refs/heads/development (1)"
+    url = "https://github.com/Gitanjalichavan/autosar-architecture-validation"
+    branch = "refs/heads/development"
+    branchSpec = "refs/heads/*"
+    authMethod = password {
+        userName = "Gitanjalichavan"
+        password = "credentialsJSON:68cb26d6-88f8-41d3-9d2a-b48edfff6207"
     }
 })
