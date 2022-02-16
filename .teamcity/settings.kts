@@ -89,6 +89,12 @@ object C4kGenerationAndBuild : BuildType({
                 filename = "ci-scripts/generation/rteGeneration.py"
             }
         }
+        python {
+            name = "c4k_generation"
+            command = file {
+                filename = "c4k_generation/c4k_creation.py"
+            }
+        }
     }
 
     triggers {
