@@ -33,51 +33,10 @@ project {
 
     buildType(C4kGenerationAndBuild)
     buildType(Build)
-    buildType(Build_2)
 }
 
 object Build : BuildType({
     name = "Build"
-
-    vcs {
-        root(DslContext.settingsRoot)
-    }
-
-    steps {
-        python {
-            name = "Validation"
-            command = file {
-                filename = "ci-scripts/validation/validation.py"
-            }
-        }
-        python {
-            name = "Rte_Generation"
-            command = file {
-                filename = "ci-scripts/generation/rteGeneration.py"
-            }
-        }
-        python {
-            name = "Compilation"
-            command = file {
-                filename = "ci-scripts/compilation/compile.py"
-            }
-        }
-        python {
-            name = "Upload"
-            command = file {
-                filename = "ci-scripts/compilation/upload.py"
-            }
-        }
-    }
-
-    triggers {
-        vcs {
-        }
-    }
-})
-
-object Build_2 : BuildType({
-    name = "Build (1)"
 
     vcs {
         root(DslContext.settingsRoot)
