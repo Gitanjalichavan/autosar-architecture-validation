@@ -82,6 +82,15 @@ object C4kGenerationAndBuild : BuildType({
         root(HttpsGithubComGitanjalichavanAutosarArchitectureValidationRefsHeadsDevelopment1)
     }
 
+    steps {
+        python {
+            name = "pre_build"
+            command = file {
+                filename = "ci-scripts/generation/rteGeneration.py"
+            }
+        }
+    }
+
     triggers {
         vcs {
         }
